@@ -1,12 +1,12 @@
 import android.util.Log;
 
-#a、定义一个发送的类，一个发送的抽象方法
+//a、定义一个发送的类，一个发送的抽象方法
 public interface Sender{
   void send();
 }
 
 
-# b、定义2个类（邮件发送和短信发送），实现2个发送方法
+// b、定义2个类（邮件发送和短信发送），实现2个发送方法
 public class MailSend implements Sender {
   @override
   public void send(){
@@ -21,7 +21,7 @@ public class SmsSend implements Sender {
   }
 }
 
-# c、定义一个发送工厂（传递String参数，来判断初始化哪个类）
+// c、定义一个发送工厂（传递String参数，来判断初始化哪个类）
 public class SendFactory {
   public Sender produce(String s) {
     if(s.equals("mial")){
@@ -33,7 +33,7 @@ public class SendFactory {
   }
 }
 
-#d、我们测试下（输入一个sms参数初始化短信构造器实例化发送短信对象）
+// d、我们测试下（输入一个sms参数初始化短信构造器实例化发送短信对象）
   case R.id.button3:
     //设计模式-工厂模式
     //工厂模式

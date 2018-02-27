@@ -42,6 +42,6 @@ class ModuleInfo(db.Model):
   dubbo_monitor = db.Column(db.Boolean, default = False)
   cov_monitor = db.Column(db.Boolean, default = False)
   pin_monitor = db.Column(db.Boolean, default = False)
-  
+#------查询结果不同格式返回-------#  
 class ModuleInfoQuery(BaseQuery):
 #-----------相关数据库操作-------#

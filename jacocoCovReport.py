@@ -18,7 +18,7 @@ def cov_trigger_dump(hostname):
   result = dump_data(hostname)
 #---------触发生成模块覆盖率统计原始文件-----------#
 
-#-------3------#
+#-------3、module.py------#
 #----3-1、module_info----#
 #在之前的表结构上加一个字段cov_port，用于dump时端口指定#
 from datetime import datetime

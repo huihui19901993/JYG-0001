@@ -26,3 +26,21 @@ def monitor_dubbo(hostname, name_port):
   return result
 
 def monitor_dubbo_service(hostname, port, name, p):
+  msg = 'ERROR'
+  try:
+    tn = telnetlib.Telnet(hostname,port)
+    tn.write('status \n')
+    msg = tn.read_until('dubbo>',1)
+  except:
+    msg = 'ERROR'
+  msg = msg.split('\r')[0]
+  q.put({name:msg})
+  return msg
+
+if __name__=='__main__':
+  hostname = '192.168.1.186'
+  hostnames = ['192.168.1.216','192.168.1.186']
+  for hostname in hostnames:
+    a = requests.get('http://localhost:5000/api/module/dubboport' + hostname).text
+    name_port = json.loads(a)
+    monitor_dubbo(hostname,name_port)
